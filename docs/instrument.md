@@ -31,7 +31,7 @@ Examples:
 - `VMCX`: Thesis Builder
 - `VFDX`: Horizon Orchestrator
 
-The full canonical type definitions live in [framework.json](../.agents/skills/lmti-selftest/references/framework.json).
+The full canonical type definitions live in [framework.json](../.agents/skills/lmti-score/references/framework.json).
 
 ## Question Design
 

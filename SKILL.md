@@ -18,7 +18,8 @@ This repository contains two installable skills, not one:
 ## Where Things Live
 
 - Human docs: `README.md`, `INSTALL.md`, `docs/`
-- Canonical instrument: `.agents/skills/lmti-selftest/references/framework.json`
+- Neutral questionnaire: `.agents/skills/lmti-selftest/references/questionnaire.json`
+- Canonical scoring framework: `.agents/skills/lmti-score/references/framework.json`
 - Canonical scorer: `.agents/skills/lmti-score/scripts/score_lmti.py`
 
 ## Editing Rule

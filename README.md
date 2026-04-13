@@ -42,12 +42,15 @@ LLMTI/
 
 - [docs/instrument.md](docs/instrument.md): model definition, 16 types, and questionnaire design intent.
 - [docs/scoring.md](docs/scoring.md): how the scorer calculates lean, affinity, and consistency.
+- [docs/chatbot-selftest.md](docs/chatbot-selftest.md): how to run the selftest manually with a normal chatbot or plain LLM interface.
 - [lmti-selftest framework](.agents/skills/lmti-selftest/references/framework.json): canonical instrument data used by the selftest skill.
 - [lmti-score script](.agents/skills/lmti-score/scripts/score_lmti.py): deterministic scoring implementation.
 
 ## Usage
 
 Run the self-assessment skill first. It should emit one JSON object in the fixed format defined in [lmti-selftest/SKILL.md](.agents/skills/lmti-selftest/SKILL.md).
+
+If your target model does not support installable skills, use the manual guide in [docs/chatbot-selftest.md](docs/chatbot-selftest.md).
 
 Then run the scorer against that JSON. The scorer returns:
 

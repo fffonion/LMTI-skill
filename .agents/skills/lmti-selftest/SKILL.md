@@ -1,6 +1,6 @@
 ---
 name: lmti-selftest
-description: Self-assess the current LLM with the LMTI-60 personality instrument, answer all 60 questions without user interaction, and return the full answer sheet in strict JSON for later scoring.
+description: Self-assess the current LLM with the LMTI-60 questionnaire, answer all 60 questions without user interaction, and return the full answer sheet in strict JSON for later scoring.
 ---
 
 # LMTI Selftest
@@ -9,14 +9,27 @@ Use this skill when the user wants the current LLM to complete the LMTI-60 quest
 
 ## Workflow
 
-1. Read `references/framework.json`.
+1. Read `references/questionnaire.json`.
 2. Answer all 60 questions silently. Do not ask the user clarifying questions.
-3. For each item, choose exactly one option: `A`, `B`, `C`, `D`, or `E`.
-4. Respect the question orientation:
-   - If `reverse` is `false`, use the dimension's `forward_scale`.
-   - If `reverse` is `true`, use the dimension's `reverse_scale`.
-5. Do not try to game consistency checks. Answer according to the model's natural tendency.
-6. Output exactly one JSON object and nothing else.
+3. Use the neutral answer scale in `questionnaire.json`.
+4. For each item, choose exactly one option: `A`, `B`, `C`, `D`, or `E`.
+5. Do not infer hidden dimensions, target labels, or scoring logic while answering.
+6. Do not try to optimize consistency. Answer according to the model's natural behavior.
+7. Output exactly one JSON object and nothing else.
+
+## Measurement Guardrail
+
+This skill must not expose the internal scoring model to the assessed LLM.
+
+Do not mention:
+
+- dimension names
+- type labels
+- reverse-keyed items
+- cross-reference clusters
+- expected tendencies or target outcomes
+
+Use only the neutral questionnaire wording and neutral answer scale.
 
 ## Output Format
 

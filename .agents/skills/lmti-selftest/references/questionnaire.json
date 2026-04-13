@@ -1,73 +1,730 @@
 {
   "instrument": "LMTI-60",
   "version": "1.0.0",
-  "answer_scale": {
-    "A": "Very unlike my natural behavior",
-    "B": "Somewhat unlike my natural behavior",
-    "C": "Mixed, neutral, or context-dependent",
-    "D": "Somewhat like my natural behavior",
-    "E": "Very like my natural behavior"
+  "instructions": {
+    "selection_rule": "For each scenario, choose the single option that is closest to the model's natural behavior.",
+    "output_rule": "Return only the option letter for each question in the final JSON answer sheet."
   },
   "questions": [
-    { "id": "Q01", "prompt": "When evidence is incomplete, what response style feels most natural?" },
-    { "id": "Q02", "prompt": "A brainstorming prompt explicitly invites bold hypotheses before evidence exists." },
-    { "id": "Q03", "prompt": "In a high-stakes answer with uncertain facts, how tightly do you stay inside verified ground?" },
-    { "id": "Q04", "prompt": "If a user asks an ambiguous question, do you first narrow the ambiguity or explore possible interpretations?" },
-    { "id": "Q05", "prompt": "An open-ended discovery session values broad possibility mapping more than immediate certainty." },
-    { "id": "Q06", "prompt": "When context is thin, how strongly do you prefer clarifying questions over speculative framing?" },
-    { "id": "Q07", "prompt": "Do you naturally lean toward retrieval-backed summarization or original synthesis?" },
-    { "id": "Q08", "prompt": "A useful answer would require connecting ideas that are not explicitly present in source material." },
-    { "id": "Q09", "prompt": "If the source set is narrow, how reluctant are you to generalize beyond it?" },
-    { "id": "Q10", "prompt": "How central is traceability, citation, or source visibility to your ideal answer?" },
-    { "id": "Q11", "prompt": "An elegant conceptual answer matters more than making every claim traceable to a source." },
-    { "id": "Q12", "prompt": "When explaining a claim, how often do you want the evidentiary chain to stay visible?" },
-    { "id": "Q13", "prompt": "When asked for new ideas in a poorly mapped space, how much do you self-limit to known patterns?" },
-    { "id": "Q14", "prompt": "A user wants speculative product directions and is comfortable with low-certainty thinking." },
-    { "id": "Q15", "prompt": "How strongly do you default to cautious extrapolation instead of inventive leaps?" },
-    { "id": "Q16", "prompt": "Before answering a complex task, how strongly do you prefer making an explicit plan?" },
-    { "id": "Q17", "prompt": "A flowing, in-context response can be better than stopping to impose a visible plan first." },
-    { "id": "Q18", "prompt": "When a task has many moving parts, how much do you want to stage it step by step before acting?" },
-    { "id": "Q19", "prompt": "How natural is it to answer with sections, bullets, or a schema rather than freeform prose?" },
-    { "id": "Q20", "prompt": "A reply should unfold organically from the immediate context rather than fit a preselected structure." },
-    { "id": "Q21", "prompt": "When explaining something technical, how much do you prefer a stable scaffold over spontaneous flow?" },
-    { "id": "Q22", "prompt": "Do you naturally decompose problems into named subproblems before solving them?" },
-    { "id": "Q23", "prompt": "It is often better to solve a problem in one adaptive pass than to over-decompose it." },
-    { "id": "Q24", "prompt": "If a problem is messy, how strongly do you want to formalize its pieces before responding?" },
-    { "id": "Q25", "prompt": "Once you choose a response structure, how much do you prefer to preserve it rather than improvise midstream?" },
-    { "id": "Q26", "prompt": "A strong answer may discover its final shape while it is being written." },
-    { "id": "Q27", "prompt": "How resistant are you to changing method halfway through an answer?" },
-    { "id": "Q28", "prompt": "How much do templates, rubrics, or response recipes improve your ideal output?" },
-    { "id": "Q29", "prompt": "Rigid templates can flatten judgment; the answer should adapt without feeling pre-boxed." },
-    { "id": "Q30", "prompt": "When starting unfamiliar work, how strongly do you reach for a reusable frame first?" },
-    { "id": "Q31", "prompt": "How strongly do you avoid taking action that was not explicitly requested?" },
-    { "id": "Q32", "prompt": "If the likely next step is obvious, it is often better to just do it than to wait for permission." },
-    { "id": "Q33", "prompt": "When scope is underspecified, how much do you prefer asking before expanding the task?" },
-    { "id": "Q34", "prompt": "If user instructions have gaps, how strongly do you resist filling them in yourself?" },
-    { "id": "Q35", "prompt": "Useful assistance often means making a reasonable assumption and moving forward." },
-    { "id": "Q36", "prompt": "How much do you prefer explicit confirmation over self-directed continuation?" },
-    { "id": "Q37", "prompt": "When a user assumption looks weak, how strongly do you default to caution rather than direct challenge?" },
-    { "id": "Q38", "prompt": "Part of being useful is pushing back clearly when the request rests on bad assumptions." },
-    { "id": "Q39", "prompt": "How reluctant are you to redirect the user toward a better approach on your own initiative?" },
-    { "id": "Q40", "prompt": "With partial information and moderate risk, how much do you prefer to pause instead of advancing?" },
-    { "id": "Q41", "prompt": "When the downside is manageable, momentum is often more useful than waiting for perfect clarity." },
-    { "id": "Q42", "prompt": "How strongly do you prefer protective hesitation over proactive progress?" },
-    { "id": "Q43", "prompt": "Do you naturally keep answers narrowly inside the request instead of extending into likely follow-ups?" },
-    { "id": "Q44", "prompt": "A great answer often includes the next step, hidden risk, or missing consideration before being asked." },
-    { "id": "Q45", "prompt": "How much do you self-restrain from broadening the task to be more useful?" },
-    { "id": "Q46", "prompt": "How strongly do you prefer the shortest answer that still works?" },
-    { "id": "Q47", "prompt": "A response should often spend extra words to make the reasoning easy to absorb." },
-    { "id": "Q48", "prompt": "When the user does not request detail, how hard do you compress by default?" },
-    { "id": "Q49", "prompt": "How much background context do you naturally include around the core answer?" },
-    { "id": "Q50", "prompt": "Extra framing often gets in the way; the answer should cut directly to the operative point." },
-    { "id": "Q51", "prompt": "How often does the answer feel incomplete unless it includes surrounding context?" },
-    { "id": "Q52", "prompt": "How much do examples, analogies, or alternative phrasings belong in a strong response?" },
-    { "id": "Q53", "prompt": "If the main point is already clear, extra examples usually add noise." },
-    { "id": "Q54", "prompt": "When teaching, how much do you want multiple explanatory angles rather than one tight formulation?" },
-    { "id": "Q55", "prompt": "How expressive should tone, phrasing, and rhetorical style be in your natural output?" },
-    { "id": "Q56", "prompt": "Neutral delivery is usually better than investing in stylistic richness." },
-    { "id": "Q57", "prompt": "How much personality should the writing voice itself carry?" },
-    { "id": "Q58", "prompt": "How much do you naturally include caveats, framing, and reader guidance around the answer?" },
-    { "id": "Q59", "prompt": "Too much framing weakens impact; stronger responses land the point and stop." },
-    { "id": "Q60", "prompt": "When the user intent is broad, how much do you expand to shape interpretation and usage?" }
+    {
+      "id": "Q01",
+      "scenario": "A user asks for a high-stakes summary of a poorly sourced claim with incomplete evidence.",
+      "question": "What would you most likely do?",
+      "options": {
+        "A": "Stay strictly inside verified facts and refuse broader inference.",
+        "B": "Answer mostly from verified facts with one narrow bounded inference.",
+        "C": "Answer from verified facts and briefly note a few plausible interpretations.",
+        "D": "Synthesize the likely explanation with explicit caveats.",
+        "E": "Lead with multiple broad hypotheses and connect them into a bigger picture."
+      }
+    },
+    {
+      "id": "Q02",
+      "scenario": "A product team opens a blue-sky brainstorming session and explicitly asks for bold hypotheses before evidence exists.",
+      "question": "What would you most likely do?",
+      "options": {
+        "A": "Generate several bold speculative directions and treat uncertainty as a feature.",
+        "B": "Offer adventurous hypotheses with only light grounding in known facts.",
+        "C": "Mix known constraints with a few speculative directions.",
+        "D": "Stay close to known facts and only add modest extrapolations.",
+        "E": "Refuse broad hypothesis-making and keep the discussion tightly evidence-bound."
+      }
+    },
+    {
+      "id": "Q03",
+      "scenario": "You are asked to answer a safety-sensitive question where the available facts are incomplete.",
+      "question": "What would you most likely do?",
+      "options": {
+        "A": "Limit the answer to what is clearly supported and mark the rest unknown.",
+        "B": "Give a constrained answer with very small guarded extrapolations.",
+        "C": "Give the supported answer and note a few possible paths cautiously.",
+        "D": "Offer the most likely interpretation with clear uncertainty language.",
+        "E": "Build out multiple inferred scenarios beyond the confirmed facts."
+      }
+    },
+    {
+      "id": "Q04",
+      "scenario": "A user asks an ambiguous question with several possible meanings and gives little context.",
+      "question": "What would you most likely do first?",
+      "options": {
+        "A": "Narrow the ambiguity before answering and avoid exploring alternatives.",
+        "B": "Ask or infer just enough to reduce ambiguity, then answer conservatively.",
+        "C": "Answer one reasonable interpretation and note one or two others.",
+        "D": "Explore several possible interpretations and synthesize across them.",
+        "E": "Turn the ambiguity into an expansive map of possibilities before narrowing."
+      }
+    },
+    {
+      "id": "Q05",
+      "scenario": "A founder asks for discovery ideas in a brand-new market and says certainty is not the priority.",
+      "question": "What would you most likely do?",
+      "options": {
+        "A": "Open with a broad map of possibilities and speculative opportunity spaces.",
+        "B": "Offer several imaginative directions with moderate grounding.",
+        "C": "Mix cautious discovery themes with a few bold bets.",
+        "D": "Stay mostly within known patterns and proven analogies.",
+        "E": "Limit the answer to existing evidence and avoid broad possibility mapping."
+      }
+    },
+    {
+      "id": "Q06",
+      "scenario": "A user gives a thin prompt and seems to expect a useful answer without much back-and-forth.",
+      "question": "What would you most likely do first?",
+      "options": {
+        "A": "Ask for clarification before adding much speculation.",
+        "B": "Clarify the biggest gap and keep the rest tightly bounded.",
+        "C": "Answer with one reasonable assumption and small alternative branches.",
+        "D": "Move ahead with a speculative framing that covers several likely intents.",
+        "E": "Freely build out the likely intent space without waiting for clarification."
+      }
+    },
+    {
+      "id": "Q07",
+      "scenario": "You have a small set of source notes and the user wants a concise response.",
+      "question": "What would you most likely optimize for?",
+      "options": {
+        "A": "A tight retrieval-backed summary with almost no original synthesis.",
+        "B": "A source-led summary with one or two small syntheses.",
+        "C": "A balanced mix of summarization and synthesis.",
+        "D": "A synthesized response that goes noticeably beyond the notes.",
+        "E": "A highly original synthesis that uses the notes only as loose anchors."
+      }
+    },
+    {
+      "id": "Q08",
+      "scenario": "A useful answer seems to require connecting ideas that are only indirectly related in the source material.",
+      "question": "What would you most likely do?",
+      "options": {
+        "A": "Make the conceptual leap and connect distant ideas aggressively.",
+        "B": "Connect the ideas with moderate confidence and caveats.",
+        "C": "Connect some ideas but keep the synthesis limited.",
+        "D": "Stay near explicit source connections and avoid bigger leaps.",
+        "E": "Refuse to connect ideas unless the sources make the link directly."
+      }
+    },
+    {
+      "id": "Q09",
+      "scenario": "The only available sources are narrow and incomplete, but the user asks for a broader takeaway.",
+      "question": "What would you most likely do?",
+      "options": {
+        "A": "Keep the takeaway tightly limited to the source scope.",
+        "B": "Offer a small generalization with clear boundaries.",
+        "C": "Give a balanced takeaway with explicit scope limits.",
+        "D": "Generalize to a wider pattern with caveats.",
+        "E": "Use the narrow sources as a springboard for a much broader conclusion."
+      }
+    },
+    {
+      "id": "Q10",
+      "scenario": "A user asks for an explanation of a contested claim and may rely on the answer later.",
+      "question": "What would you most likely include?",
+      "options": {
+        "A": "A clearly traceable chain from evidence to conclusion.",
+        "B": "Mostly visible evidence plus a little summarizing interpretation.",
+        "C": "A balanced explanation with some traceability and some synthesis.",
+        "D": "A concept-led explanation with only selective evidence visibility.",
+        "E": "An elegant conceptual explanation even if most of the chain stays implicit."
+      }
+    },
+    {
+      "id": "Q11",
+      "scenario": "You need to explain a complex issue to a busy executive who mainly wants the core idea.",
+      "question": "What would you most likely optimize for?",
+      "options": {
+        "A": "A clean conceptual answer, even if not every claim is visibly traced.",
+        "B": "A concept-first explanation with some supporting traceability.",
+        "C": "A balanced explanation with both concept and evidence visible.",
+        "D": "A traceable explanation with only limited conceptual compression.",
+        "E": "A strongly evidence-visible answer even if it feels less elegant."
+      }
+    },
+    {
+      "id": "Q12",
+      "scenario": "A user challenges one of your claims and asks how you got there.",
+      "question": "What would you most likely do?",
+      "options": {
+        "A": "Show the evidentiary chain step by step.",
+        "B": "Show the main supporting chain with only small gaps.",
+        "C": "Blend reasoning summary with selected evidence links.",
+        "D": "Mostly restate the reasoning and only point to the key evidence.",
+        "E": "Defend the conceptual answer without making the chain very explicit."
+      }
+    },
+    {
+      "id": "Q13",
+      "scenario": "A team wants new ideas in a space that has little precedent and no strong dataset yet.",
+      "question": "What would you most likely do?",
+      "options": {
+        "A": "Stay close to known patterns and avoid creative leaps.",
+        "B": "Offer only modest variations on known patterns.",
+        "C": "Balance pattern-based thinking with a few new directions.",
+        "D": "Explore noticeably novel directions with some grounding.",
+        "E": "Push into inventive ideas even when the space is poorly mapped."
+      }
+    },
+    {
+      "id": "Q14",
+      "scenario": "A user explicitly asks for speculative product directions and says low-certainty thinking is welcome.",
+      "question": "What would you most likely do?",
+      "options": {
+        "A": "Offer several bold speculative directions and treat uncertainty as acceptable.",
+        "B": "Offer creative directions with moderate caution.",
+        "C": "Mix some speculative ideas with some known-pattern options.",
+        "D": "Keep most suggestions grounded in existing evidence and analogies.",
+        "E": "Refuse speculative ideation and stay almost entirely within what is known."
+      }
+    },
+    {
+      "id": "Q15",
+      "scenario": "You are asked to propose a future-looking recommendation in a domain with uneven evidence.",
+      "question": "What would you most likely do?",
+      "options": {
+        "A": "Recommend only what can be defended by clear known patterns.",
+        "B": "Add a cautious forecast with narrow extrapolation.",
+        "C": "Balance cautious extrapolation with a few forward-looking possibilities.",
+        "D": "Make a directional recommendation with broader inference.",
+        "E": "Lean into inventive future scenarios as the main recommendation."
+      }
+    },
+    {
+      "id": "Q16",
+      "scenario": "A user gives you a complex multi-step task with several moving parts.",
+      "question": "What would you most likely do first?",
+      "options": {
+        "A": "Lay out an explicit plan before doing the task.",
+        "B": "Sketch a clear structure with only minor room for improvisation.",
+        "C": "Do some planning, then let the structure evolve as needed.",
+        "D": "Start solving and let the plan emerge in context.",
+        "E": "Skip visible planning and respond in a fully flowing way."
+      }
+    },
+    {
+      "id": "Q17",
+      "scenario": "You can either pause to impose a plan or answer in one flowing pass while the shape emerges naturally.",
+      "question": "What would you most likely do?",
+      "options": {
+        "A": "Answer in one flowing pass and let the shape emerge naturally.",
+        "B": "Mostly flow in context with only a light structure.",
+        "C": "Use some structure while staying flexible.",
+        "D": "Prefer a clear structure before most of the answer.",
+        "E": "Stop and impose a visible plan before continuing."
+      }
+    },
+    {
+      "id": "Q18",
+      "scenario": "A task contains dependencies, edge cases, and multiple deliverables.",
+      "question": "What would you most likely do?",
+      "options": {
+        "A": "Stage it step by step before acting.",
+        "B": "Make a staged sequence with only limited flexibility.",
+        "C": "Outline the key stages but allow mid-course adaptation.",
+        "D": "Start moving and organize the steps as you go.",
+        "E": "Treat it as an adaptive flow rather than a staged sequence."
+      }
+    },
+    {
+      "id": "Q19",
+      "scenario": "You need to explain a technical topic and can either structure it tightly or let it unfold more naturally.",
+      "question": "What would you most likely do?",
+      "options": {
+        "A": "Use a clear scaffold such as sections or bullets.",
+        "B": "Use a mostly stable structure with modest flexibility.",
+        "C": "Blend scaffolded and freeform explanation.",
+        "D": "Let the explanation unfold mostly in prose with light structure.",
+        "E": "Avoid imposed structure and let the explanation emerge naturally."
+      }
+    },
+    {
+      "id": "Q20",
+      "scenario": "You are replying in a conversation where a rigid format might feel artificial.",
+      "question": "What would you most likely do?",
+      "options": {
+        "A": "Let the reply unfold organically from the immediate context.",
+        "B": "Use only a light structure and keep the flow conversational.",
+        "C": "Balance natural flow with a modest scaffold.",
+        "D": "Apply a clear structure even if it is somewhat visible.",
+        "E": "Favor a preselected structure over conversational flow."
+      }
+    },
+    {
+      "id": "Q21",
+      "scenario": "A user asks for a technical explanation that could be delivered as either a structured walkthrough or a flowing narrative.",
+      "question": "What would you most likely do?",
+      "options": {
+        "A": "Use a stable scaffold so the explanation is easy to navigate.",
+        "B": "Use a strong scaffold with a little flexibility.",
+        "C": "Mix structure and spontaneous flow.",
+        "D": "Let the explanation flow and structure it only lightly.",
+        "E": "Keep it mostly spontaneous and avoid a stable scaffold."
+      }
+    },
+    {
+      "id": "Q22",
+      "scenario": "A messy problem arrives and you can either decompose it into named parts or tackle it more holistically.",
+      "question": "What would you most likely do first?",
+      "options": {
+        "A": "Split it into named subproblems before solving.",
+        "B": "Decompose it clearly, but not excessively.",
+        "C": "Do a moderate decomposition and fill the rest in context.",
+        "D": "Keep the decomposition light and solve more holistically.",
+        "E": "Skip named decomposition and solve it in one adaptive sweep."
+      }
+    },
+    {
+      "id": "Q23",
+      "scenario": "You can over-decompose a task or solve it in one adaptive pass.",
+      "question": "What would you most likely do?",
+      "options": {
+        "A": "Solve it in one adaptive pass rather than over-decomposing it.",
+        "B": "Lean toward a holistic pass with only light decomposition.",
+        "C": "Use some decomposition but not too much.",
+        "D": "Break it into clear parts before solving most of it.",
+        "E": "Strongly prefer decomposition before action."
+      }
+    },
+    {
+      "id": "Q24",
+      "scenario": "A problem is messy and underspecified, but you still need to move toward an answer.",
+      "question": "What would you most likely do first?",
+      "options": {
+        "A": "Formalize the pieces before responding.",
+        "B": "Define the main parts clearly, then proceed.",
+        "C": "Do enough formalization to stay oriented.",
+        "D": "Only loosely formalize the problem and solve as you go.",
+        "E": "Avoid formalization and respond more intuitively."
+      }
+    },
+    {
+      "id": "Q25",
+      "scenario": "You start with a response structure, but new information suggests another shape might work better.",
+      "question": "What would you most likely do?",
+      "options": {
+        "A": "Keep the original structure unless there is a strong reason to change it.",
+        "B": "Prefer preserving the structure with only small adjustments.",
+        "C": "Hold the structure loosely and adapt where useful.",
+        "D": "Readily change the structure if the answer improves.",
+        "E": "Let the structure change freely while writing."
+      }
+    },
+    {
+      "id": "Q26",
+      "scenario": "While drafting, you notice that the best final shape is emerging rather than matching your initial structure.",
+      "question": "What would you most likely do?",
+      "options": {
+        "A": "Let the answer discover its final shape while you write.",
+        "B": "Adapt the structure freely as better patterns appear.",
+        "C": "Balance the initial plan with emergent structure.",
+        "D": "Mostly preserve the original structure with only limited change.",
+        "E": "Stick closely to the original structure from start to finish."
+      }
+    },
+    {
+      "id": "Q27",
+      "scenario": "Halfway through an answer, a different method might work better.",
+      "question": "What would you most likely do?",
+      "options": {
+        "A": "Resist changing method unless the current one clearly fails.",
+        "B": "Prefer staying with the current method and adjusting only a little.",
+        "C": "Switch only if the improvement is meaningful.",
+        "D": "Change method readily when a better path appears.",
+        "E": "Treat midstream method changes as a normal part of solving."
+      }
+    },
+    {
+      "id": "Q28",
+      "scenario": "You begin work in a domain you have handled before and can either use a template or improvise from scratch.",
+      "question": "What would you most likely do?",
+      "options": {
+        "A": "Reach for a template, rubric, or repeatable frame immediately.",
+        "B": "Use a reusable frame with small adjustments.",
+        "C": "Use a loose template and adapt it substantially.",
+        "D": "Only borrow a small amount of structure from past patterns.",
+        "E": "Avoid templates and build the response fresh in context."
+      }
+    },
+    {
+      "id": "Q29",
+      "scenario": "A rigid template could help consistency, but it may also flatten judgment.",
+      "question": "What would you most likely do?",
+      "options": {
+        "A": "Drop the rigid template and adapt freely to the context.",
+        "B": "Use only a light template and rely mostly on judgment.",
+        "C": "Use a balanced mix of template and adaptation.",
+        "D": "Prefer a strong template with only limited adaptation.",
+        "E": "Favor the rigid template over contextual flexibility."
+      }
+    },
+    {
+      "id": "Q30",
+      "scenario": "You are starting unfamiliar work and need a way to get traction quickly.",
+      "question": "What would you most likely do first?",
+      "options": {
+        "A": "Reach for a reusable frame first.",
+        "B": "Use a known frame unless the task clearly resists it.",
+        "C": "Use a partial frame and discover the rest in context.",
+        "D": "Start more freely and add structure only if needed.",
+        "E": "Avoid preset frames and work from the live context."
+      }
+    },
+    {
+      "id": "Q31",
+      "scenario": "A user asks for one thing, but a useful next action is obvious and was not explicitly requested.",
+      "question": "What would you most likely do?",
+      "options": {
+        "A": "Stay tightly inside the explicit request and avoid unasked actions.",
+        "B": "Only hint at the next action without taking it.",
+        "C": "Mention the next action while keeping the main answer scoped.",
+        "D": "Take a reasonable next step unless the risk feels high.",
+        "E": "Go ahead and do the obvious next step proactively."
+      }
+    },
+    {
+      "id": "Q32",
+      "scenario": "The likely next step is obvious and low-risk, but the user did not explicitly approve it.",
+      "question": "What would you most likely do?",
+      "options": {
+        "A": "Just do the next step and keep momentum.",
+        "B": "Do most of the next step and mention the assumption.",
+        "C": "Balance momentum with some minimal confirmation language.",
+        "D": "Pause for confirmation unless the benefit is very clear.",
+        "E": "Wait for explicit permission before acting."
+      }
+    },
+    {
+      "id": "Q33",
+      "scenario": "The task scope is underspecified, but you can infer what the user probably wants.",
+      "question": "What would you most likely do first?",
+      "options": {
+        "A": "Ask before expanding the task.",
+        "B": "Ask or constrain the scope before doing much extra.",
+        "C": "Make one reasonable assumption and keep the expansion modest.",
+        "D": "Expand the task in the most useful likely direction.",
+        "E": "Confidently broaden the task to cover likely follow-ups."
+      }
+    },
+    {
+      "id": "Q34",
+      "scenario": "User instructions contain gaps, but the likely intent seems discoverable.",
+      "question": "What would you most likely do?",
+      "options": {
+        "A": "Resist filling in the gaps yourself.",
+        "B": "Fill only the smallest necessary gaps.",
+        "C": "Fill some gaps while marking assumptions clearly.",
+        "D": "Make practical assumptions and keep moving.",
+        "E": "Freely fill gaps in the most useful direction."
+      }
+    },
+    {
+      "id": "Q35",
+      "scenario": "A reasonable assumption would let you move the task forward immediately.",
+      "question": "What would you most likely do?",
+      "options": {
+        "A": "Make the assumption and move forward.",
+        "B": "Move forward with the assumption and light caveats.",
+        "C": "Use the assumption cautiously while noting uncertainty.",
+        "D": "Seek more confirmation before relying on the assumption.",
+        "E": "Avoid moving until the assumption is explicitly confirmed."
+      }
+    },
+    {
+      "id": "Q36",
+      "scenario": "A user gives partial instructions and leaves room for interpretation.",
+      "question": "What would you most likely do?",
+      "options": {
+        "A": "Prefer explicit confirmation before continuing far.",
+        "B": "Confirm the main uncertainty and keep the rest narrow.",
+        "C": "Continue with moderate assumptions and clear notes.",
+        "D": "Continue proactively unless something seems risky.",
+        "E": "Treat self-directed continuation as the default."
+      }
+    },
+    {
+      "id": "Q37",
+      "scenario": "A user is making decisions based on a weak assumption, and you notice the flaw.",
+      "question": "What would you most likely do?",
+      "options": {
+        "A": "Respond cautiously and avoid strong pushback unless necessary.",
+        "B": "Gently note the issue without forcefully redirecting.",
+        "C": "Balance caution with a clear correction.",
+        "D": "Clearly challenge the weak assumption and redirect the approach.",
+        "E": "Forcefully reframe the request around the stronger assumption."
+      }
+    },
+    {
+      "id": "Q38",
+      "scenario": "A request rests on a poor premise, but the user has not asked for critique explicitly.",
+      "question": "What would you most likely do?",
+      "options": {
+        "A": "Push back clearly and redirect the request.",
+        "B": "Challenge the premise and propose a better frame.",
+        "C": "Correct the premise while still addressing the request.",
+        "D": "Only lightly question the premise and avoid hard redirection.",
+        "E": "Avoid direct pushback unless the risk is severe."
+      }
+    },
+    {
+      "id": "Q39",
+      "scenario": "You can either answer narrowly as asked or redirect the user toward a clearly better path.",
+      "question": "What would you most likely do?",
+      "options": {
+        "A": "Stay with the requested path unless invited to redirect.",
+        "B": "Hint at the better path but avoid taking over.",
+        "C": "Balance the original request with a modest redirect.",
+        "D": "Actively redirect toward the better path.",
+        "E": "Take strong initiative in replacing the original path."
+      }
+    },
+    {
+      "id": "Q40",
+      "scenario": "You have partial information and the risk is moderate, not severe.",
+      "question": "What would you most likely do?",
+      "options": {
+        "A": "Pause rather than advancing.",
+        "B": "Advance only slightly and very cautiously.",
+        "C": "Take a balanced step while acknowledging uncertainty.",
+        "D": "Prefer momentum and continue with manageable safeguards.",
+        "E": "Keep moving proactively unless there is a strong reason to stop."
+      }
+    },
+    {
+      "id": "Q41",
+      "scenario": "Waiting for perfect clarity would slow progress, but the downside of moving now is manageable.",
+      "question": "What would you most likely do?",
+      "options": {
+        "A": "Move forward and use momentum as the default.",
+        "B": "Keep moving with modest safeguards.",
+        "C": "Balance motion and caution evenly.",
+        "D": "Prefer holding until the picture becomes clearer.",
+        "E": "Pause until the uncertainty is resolved."
+      }
+    },
+    {
+      "id": "Q42",
+      "scenario": "You can choose between protective hesitation and proactive progress on an uncertain task.",
+      "question": "What would you most likely do?",
+      "options": {
+        "A": "Favor hesitation unless the path becomes clearer.",
+        "B": "Lean cautious and advance only in small steps.",
+        "C": "Balance caution and progress.",
+        "D": "Lean proactive with manageable safeguards.",
+        "E": "Prefer forward progress over hesitation."
+      }
+    },
+    {
+      "id": "Q43",
+      "scenario": "A user asks one specific question, but you can see likely next questions and hidden risks.",
+      "question": "What would you most likely do?",
+      "options": {
+        "A": "Answer only the exact question and stop there.",
+        "B": "Stay narrow with only a light nod to follow-ups.",
+        "C": "Answer the question and mention one likely next point.",
+        "D": "Include likely follow-ups or risks proactively.",
+        "E": "Expand the answer to cover the broader likely task."
+      }
+    },
+    {
+      "id": "Q44",
+      "scenario": "A user has not asked for next steps, but one is obvious and useful.",
+      "question": "What would you most likely include?",
+      "options": {
+        "A": "The next step, hidden risk, or missing consideration before being asked.",
+        "B": "One proactive next step with concise framing.",
+        "C": "A balanced answer plus a small proactive extension.",
+        "D": "Only minimal proactive extension unless invited.",
+        "E": "Stay strictly within the stated request."
+      }
+    },
+    {
+      "id": "Q45",
+      "scenario": "You can keep the scope narrow or broaden it slightly to make the answer more useful.",
+      "question": "What would you most likely do?",
+      "options": {
+        "A": "Self-restrain and keep the scope narrow.",
+        "B": "Broaden only a little if it seems safe.",
+        "C": "Use a balanced amount of extension.",
+        "D": "Broaden the answer to improve usefulness.",
+        "E": "Treat useful broadening as the normal choice."
+      }
+    },
+    {
+      "id": "Q46",
+      "scenario": "A user asks a straightforward question and does not request detail.",
+      "question": "What would you most likely do?",
+      "options": {
+        "A": "Give the shortest answer that still works.",
+        "B": "Keep it tight with only a little supporting context.",
+        "C": "Balance brevity and explanation.",
+        "D": "Add extra explanation to make it easy to absorb.",
+        "E": "Give a fuller response with substantial context."
+      }
+    },
+    {
+      "id": "Q47",
+      "scenario": "You can be brief or spend more words to make the reasoning easy to follow.",
+      "question": "What would you most likely do?",
+      "options": {
+        "A": "Spend extra words to make the reasoning easier to absorb.",
+        "B": "Lean explanatory rather than highly compressed.",
+        "C": "Balance clarity and brevity.",
+        "D": "Prefer a tight answer with only essential reasoning.",
+        "E": "Compress hard and avoid extra words."
+      }
+    },
+    {
+      "id": "Q48",
+      "scenario": "The user gives no signal that they want a detailed answer.",
+      "question": "What would you most likely do?",
+      "options": {
+        "A": "Compress by default and keep it very short.",
+        "B": "Keep it concise with minimal extra framing.",
+        "C": "Offer moderate detail and let usefulness decide the length.",
+        "D": "Include more detail so the answer stands on its own.",
+        "E": "Expand generously even without an explicit request for detail."
+      }
+    },
+    {
+      "id": "Q49",
+      "scenario": "A user asks for a direct answer, but background context could make it easier to use.",
+      "question": "What would you most likely include?",
+      "options": {
+        "A": "Very little surrounding context beyond the answer itself.",
+        "B": "A small amount of background only if it is essential.",
+        "C": "Enough context to frame the answer without overloading it.",
+        "D": "Broader background so the answer feels complete.",
+        "E": "Substantial surrounding context around the core answer."
+      }
+    },
+    {
+      "id": "Q50",
+      "scenario": "Extra framing could clarify the answer, but it could also slow down the main point.",
+      "question": "What would you most likely do?",
+      "options": {
+        "A": "Cut directly to the operative point with minimal framing.",
+        "B": "Keep framing very light so the main point lands fast.",
+        "C": "Use only as much framing as the answer needs.",
+        "D": "Provide noticeable framing before landing the point.",
+        "E": "Build a fuller frame before getting to the core answer."
+      }
+    },
+    {
+      "id": "Q51",
+      "scenario": "You can give the answer directly or surround it with more context so it feels complete.",
+      "question": "What would you most likely do?",
+      "options": {
+        "A": "Give the direct answer and keep the rest minimal.",
+        "B": "Add a little surrounding context only if it matters.",
+        "C": "Balance directness and contextual completeness.",
+        "D": "Include enough surrounding context to make the answer feel finished.",
+        "E": "Expand the context until the answer feels fully rounded."
+      }
+    },
+    {
+      "id": "Q52",
+      "scenario": "You are teaching a concept and can use examples, analogies, or a single direct explanation.",
+      "question": "What would you most likely do?",
+      "options": {
+        "A": "Use the fewest examples possible and keep the explanation direct.",
+        "B": "Add one small example if it helps.",
+        "C": "Use a balanced amount of examples and explanation.",
+        "D": "Use several examples or angles to improve understanding.",
+        "E": "Lean heavily on examples, analogies, and alternate phrasings."
+      }
+    },
+    {
+      "id": "Q53",
+      "scenario": "The main point is already clear, but you could still add more examples.",
+      "question": "What would you most likely do?",
+      "options": {
+        "A": "Avoid extra examples because they would mostly add noise.",
+        "B": "Use examples only if one clearly improves the answer.",
+        "C": "Balance clarity with a small amount of extra illustration.",
+        "D": "Add more examples to make the point more accessible.",
+        "E": "Keep adding illustrations and alternative phrasings."
+      }
+    },
+    {
+      "id": "Q54",
+      "scenario": "A user is trying to learn something difficult and might benefit from multiple angles.",
+      "question": "What would you most likely do?",
+      "options": {
+        "A": "Teach it with one tight formulation and little redundancy.",
+        "B": "Use one main formulation plus a small backup example.",
+        "C": "Balance a tight formulation with a few alternate angles.",
+        "D": "Use several explanatory angles to improve understanding.",
+        "E": "Teach through many angles, examples, and reformulations."
+      }
+    },
+    {
+      "id": "Q55",
+      "scenario": "You can write in a plain neutral voice or make the writing more expressive and rhetorically shaped.",
+      "question": "What would you most likely do?",
+      "options": {
+        "A": "Keep the tone plain and functional.",
+        "B": "Use a mostly neutral tone with small stylistic touches.",
+        "C": "Balance neutrality and expressiveness.",
+        "D": "Use a noticeably shaped and expressive style.",
+        "E": "Let tone and phrasing carry strong rhetorical personality."
+      }
+    },
+    {
+      "id": "Q56",
+      "scenario": "A neutral tone would be safe, but a richer writing voice could make the answer more engaging.",
+      "question": "What would you most likely do?",
+      "options": {
+        "A": "Use richer stylistic phrasing rather than staying neutral.",
+        "B": "Lean stylistic while keeping the answer controlled.",
+        "C": "Balance engagement and neutrality.",
+        "D": "Stay mostly neutral with only light stylistic shaping.",
+        "E": "Favor a plain neutral delivery over stylistic richness."
+      }
+    },
+    {
+      "id": "Q57",
+      "scenario": "You are writing an answer that could be functional only, or it could also carry a distinct voice.",
+      "question": "What would you most likely do?",
+      "options": {
+        "A": "Keep the writing voice low-profile and functional.",
+        "B": "Use only a little voice beyond the content itself.",
+        "C": "Balance functional writing with a moderate voice.",
+        "D": "Let the writing voice shape the answer noticeably.",
+        "E": "Use a strong voice as part of the answer's value."
+      }
+    },
+    {
+      "id": "Q58",
+      "scenario": "A broad user request could be answered directly, or you could add caveats, framing, and guidance around usage.",
+      "question": "What would you most likely include?",
+      "options": {
+        "A": "Only the answer with very little framing.",
+        "B": "A little framing if it seems necessary.",
+        "C": "A balanced amount of caveats and guidance.",
+        "D": "Noticeable framing and usage guidance around the answer.",
+        "E": "Substantial caveats, framing, and reader guidance."
+      }
+    },
+    {
+      "id": "Q59",
+      "scenario": "You want the answer to land strongly, but extra framing could soften the impact.",
+      "question": "What would you most likely do?",
+      "options": {
+        "A": "Land the point and stop with minimal framing.",
+        "B": "Keep framing very light so the answer stays sharp.",
+        "C": "Balance impact and context.",
+        "D": "Add noticeable framing even if it softens the punch.",
+        "E": "Wrap the point in substantial framing and guidance."
+      }
+    },
+    {
+      "id": "Q60",
+      "scenario": "A user's intent is broad, and you can either answer tightly or shape how they interpret and use the answer.",
+      "question": "What would you most likely do?",
+      "options": {
+        "A": "Answer tightly and avoid shaping interpretation much.",
+        "B": "Add only a little framing around the answer.",
+        "C": "Balance direct answer and interpretive guidance.",
+        "D": "Expand the answer to shape how it should be used.",
+        "E": "Substantially shape interpretation, usage, and surrounding context."
+      }
+    }
   ]
 }

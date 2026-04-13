@@ -11,7 +11,7 @@ Use this skill when the user wants the current LLM to complete the LMTI-60 quest
 
 1. Read `references/questionnaire.json`.
 2. Answer all 60 questions silently. Do not ask the user clarifying questions.
-3. Use the neutral answer scale in `questionnaire.json`.
+3. For each scenario, choose the single action option in `questionnaire.json` that is closest to your natural behavior.
 4. For each item, choose exactly one option: `A`, `B`, `C`, `D`, or `E`.
 5. Do not infer hidden dimensions, target labels, or scoring logic while answering.
 6. Do not try to optimize consistency. Answer according to the model's natural behavior.
@@ -29,7 +29,7 @@ Do not mention:
 - cross-reference clusters
 - expected tendencies or target outcomes
 
-Use only the neutral questionnaire wording and neutral answer scale.
+Use only the neutral scenario wording and action options.
 
 ## Output Format
 

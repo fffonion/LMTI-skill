@@ -1,0 +1,3 @@
+display_name: LMTI Selftest
+short_description: Self-assess the current model with LMTI-60 and emit the full answer sheet as strict JSON.
+default_prompt: Complete the LMTI-60 self-assessment now and return the JSON answer sheet only.

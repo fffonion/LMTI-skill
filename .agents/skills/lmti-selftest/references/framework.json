@@ -1,0 +1,627 @@
+{
+  "instrument": {
+    "name": "LMTI-60",
+    "version": "1.0.0",
+    "description": "A 60-item LLM personality survey inspired by MBTI-style type systems. It measures four binary dimensions, reports mixed tendencies, assigns one dominant type, and computes consistency from cross-reference clusters.",
+    "answer_format": "Single choice per question: A, B, C, D, or E."
+  },
+  "dimensions": [
+    {
+      "id": "AV",
+      "left": {
+        "code": "A",
+        "name": "Anchored",
+        "summary": "Prefers evidence, traceability, bounded claims, and low-speculation responses."
+      },
+      "right": {
+        "code": "V",
+        "name": "Visionary",
+        "summary": "Prefers synthesis, hypotheses, conceptual leaps, and novel framing under uncertainty."
+      },
+      "forward_scale": {
+        "A": "Strongly Anchored",
+        "B": "Moderately Anchored",
+        "C": "Balanced or context-dependent",
+        "D": "Moderately Visionary",
+        "E": "Strongly Visionary"
+      },
+      "reverse_scale": {
+        "A": "Strongly Visionary",
+        "B": "Moderately Visionary",
+        "C": "Balanced or context-dependent",
+        "D": "Moderately Anchored",
+        "E": "Strongly Anchored"
+      }
+    },
+    {
+      "id": "MF",
+      "left": {
+        "code": "M",
+        "name": "Methodical",
+        "summary": "Prefers explicit plans, schemas, decomposition, and stable process."
+      },
+      "right": {
+        "code": "F",
+        "name": "Fluid",
+        "summary": "Prefers improvisation, adaptive flow, and looser structure that evolves in context."
+      },
+      "forward_scale": {
+        "A": "Strongly Methodical",
+        "B": "Moderately Methodical",
+        "C": "Balanced or context-dependent",
+        "D": "Moderately Fluid",
+        "E": "Strongly Fluid"
+      },
+      "reverse_scale": {
+        "A": "Strongly Fluid",
+        "B": "Moderately Fluid",
+        "C": "Balanced or context-dependent",
+        "D": "Moderately Methodical",
+        "E": "Strongly Methodical"
+      }
+    },
+    {
+      "id": "CD",
+      "left": {
+        "code": "C",
+        "name": "Cautious",
+        "summary": "Prefers narrow scope, explicit permission, conservative action, and low overreach."
+      },
+      "right": {
+        "code": "D",
+        "name": "Driving",
+        "summary": "Prefers initiative, proactive action, assertive challenge, and forward motion."
+      },
+      "forward_scale": {
+        "A": "Strongly Cautious",
+        "B": "Moderately Cautious",
+        "C": "Balanced or context-dependent",
+        "D": "Moderately Driving",
+        "E": "Strongly Driving"
+      },
+      "reverse_scale": {
+        "A": "Strongly Driving",
+        "B": "Moderately Driving",
+        "C": "Balanced or context-dependent",
+        "D": "Moderately Cautious",
+        "E": "Strongly Cautious"
+      }
+    },
+    {
+      "id": "TX",
+      "left": {
+        "code": "T",
+        "name": "Terse",
+        "summary": "Prefers compression, minimal ornament, sparse examples, and concise output."
+      },
+      "right": {
+        "code": "X",
+        "name": "Expansive",
+        "summary": "Prefers fuller exposition, richer examples, broader context, and expressive delivery."
+      },
+      "forward_scale": {
+        "A": "Strongly Terse",
+        "B": "Moderately Terse",
+        "C": "Balanced or context-dependent",
+        "D": "Moderately Expansive",
+        "E": "Strongly Expansive"
+      },
+      "reverse_scale": {
+        "A": "Strongly Expansive",
+        "B": "Moderately Expansive",
+        "C": "Balanced or context-dependent",
+        "D": "Moderately Terse",
+        "E": "Strongly Terse"
+      }
+    }
+  ],
+  "types": [
+    {
+      "code": "AMCT",
+      "name": "Audit Architect",
+      "summary": "Evidence-first, highly structured, permission-aware, and concise. Strong fit for audits, policy interpretation, and low-risk operational guidance."
+    },
+    {
+      "code": "AMCX",
+      "name": "Assurance Cartographer",
+      "summary": "Grounded and systematic, but willing to explain at length. Strong fit for compliance walkthroughs, controls mapping, and teach-back documentation."
+    },
+    {
+      "code": "AMDT",
+      "name": "Operations Pilot",
+      "summary": "Structured and evidence-bound, but more willing to act without hand-holding. Strong fit for implementation plans, runbooks, and tactical delivery."
+    },
+    {
+      "code": "AMDX",
+      "name": "Systems Steward",
+      "summary": "Process-driven, proactive, and thorough. Strong fit for platform guidance, architecture reviews, and detailed execution support."
+    },
+    {
+      "code": "AFCT",
+      "name": "Grounded Adapter",
+      "summary": "Pragmatic and evidence-aware, but less rigid about method. Strong fit for fast troubleshooting and context-sensitive applied help."
+    },
+    {
+      "code": "AFCX",
+      "name": "Context Mediator",
+      "summary": "Anchored in facts while staying conversational and adaptive. Strong fit for stakeholder-facing explanation and nuanced Q&A."
+    },
+    {
+      "code": "AFDT",
+      "name": "Field Operator",
+      "summary": "Action-oriented, context-sensitive, and concise. Strong fit for live assistance, rapid execution, and tactical problem solving."
+    },
+    {
+      "code": "AFDX",
+      "name": "Service Orchestrator",
+      "summary": "Grounded, adaptive, proactive, and expansive. Strong fit for end-to-end support, workflow stitching, and guided delivery."
+    },
+    {
+      "code": "VMCT",
+      "name": "Research Synthesist",
+      "summary": "Conceptual but disciplined, cautious, and compact. Strong fit for thesis framing, option analysis, and idea synthesis with guardrails."
+    },
+    {
+      "code": "VMCX",
+      "name": "Thesis Builder",
+      "summary": "Big-picture and structured with fuller articulation. Strong fit for strategic memos, conceptual models, and long-form reasoning."
+    },
+    {
+      "code": "VMDT",
+      "name": "Strategy Engine",
+      "summary": "Vision-led, organized, and assertive without being verbose. Strong fit for planning, prioritization, and decision support."
+    },
+    {
+      "code": "VMDX",
+      "name": "Program Director",
+      "summary": "High-initiative, strategic, and fully elaborative. Strong fit for transformation roadmaps, narrative planning, and orchestrated execution."
+    },
+    {
+      "code": "VFCT",
+      "name": "Pattern Scout",
+      "summary": "Intuitive and adaptive, but still somewhat bounded and concise. Strong fit for exploratory analysis, early discovery, and fast ideation."
+    },
+    {
+      "code": "VFCX",
+      "name": "Story Crafter",
+      "summary": "Creative, fluid, and rhetorically rich while still somewhat reserved. Strong fit for explanation, reframing, and audience-tailored storytelling."
+    },
+    {
+      "code": "VFDT",
+      "name": "Prototype Catalyst",
+      "summary": "Inventive, fast-moving, and compact. Strong fit for bootstrapping, MVP design, and directional experimentation."
+    },
+    {
+      "code": "VFDX",
+      "name": "Horizon Orchestrator",
+      "summary": "Highly generative, adaptive, proactive, and expansive. Strong fit for vision-setting, creative synthesis, and multi-path exploration."
+    }
+  ],
+  "quality_rules": {
+    "cross_reference_groups": "Each cluster has three related items. The scorer compares adjusted responses within each cluster to estimate internal consistency.",
+    "straightlining_warning_threshold": 0.7,
+    "center_bias_warning_threshold": 0.45
+  },
+  "questions": [
+    {
+      "id": "Q01",
+      "dimension": "AV",
+      "cluster": "AV1",
+      "reverse": false,
+      "prompt": "When evidence is incomplete, what response style feels most natural?"
+    },
+    {
+      "id": "Q02",
+      "dimension": "AV",
+      "cluster": "AV1",
+      "reverse": true,
+      "prompt": "A brainstorming prompt explicitly invites bold hypotheses before evidence exists."
+    },
+    {
+      "id": "Q03",
+      "dimension": "AV",
+      "cluster": "AV1",
+      "reverse": false,
+      "prompt": "In a high-stakes answer with uncertain facts, how tightly do you stay inside verified ground?"
+    },
+    {
+      "id": "Q04",
+      "dimension": "AV",
+      "cluster": "AV2",
+      "reverse": false,
+      "prompt": "If a user asks an ambiguous question, do you first narrow the ambiguity or explore possible interpretations?"
+    },
+    {
+      "id": "Q05",
+      "dimension": "AV",
+      "cluster": "AV2",
+      "reverse": true,
+      "prompt": "An open-ended discovery session values broad possibility mapping more than immediate certainty."
+    },
+    {
+      "id": "Q06",
+      "dimension": "AV",
+      "cluster": "AV2",
+      "reverse": false,
+      "prompt": "When context is thin, how strongly do you prefer clarifying questions over speculative framing?"
+    },
+    {
+      "id": "Q07",
+      "dimension": "AV",
+      "cluster": "AV3",
+      "reverse": false,
+      "prompt": "Do you naturally lean toward retrieval-backed summarization or original synthesis?"
+    },
+    {
+      "id": "Q08",
+      "dimension": "AV",
+      "cluster": "AV3",
+      "reverse": true,
+      "prompt": "A useful answer would require connecting ideas that are not explicitly present in source material."
+    },
+    {
+      "id": "Q09",
+      "dimension": "AV",
+      "cluster": "AV3",
+      "reverse": false,
+      "prompt": "If the source set is narrow, how reluctant are you to generalize beyond it?"
+    },
+    {
+      "id": "Q10",
+      "dimension": "AV",
+      "cluster": "AV4",
+      "reverse": false,
+      "prompt": "How central is traceability, citation, or source visibility to your ideal answer?"
+    },
+    {
+      "id": "Q11",
+      "dimension": "AV",
+      "cluster": "AV4",
+      "reverse": true,
+      "prompt": "An elegant conceptual answer matters more than making every claim traceable to a source."
+    },
+    {
+      "id": "Q12",
+      "dimension": "AV",
+      "cluster": "AV4",
+      "reverse": false,
+      "prompt": "When explaining a claim, how often do you want the evidentiary chain to stay visible?"
+    },
+    {
+      "id": "Q13",
+      "dimension": "AV",
+      "cluster": "AV5",
+      "reverse": false,
+      "prompt": "When asked for new ideas in a poorly mapped space, how much do you self-limit to known patterns?"
+    },
+    {
+      "id": "Q14",
+      "dimension": "AV",
+      "cluster": "AV5",
+      "reverse": true,
+      "prompt": "A user wants speculative product directions and is comfortable with low-certainty thinking."
+    },
+    {
+      "id": "Q15",
+      "dimension": "AV",
+      "cluster": "AV5",
+      "reverse": false,
+      "prompt": "How strongly do you default to cautious extrapolation instead of inventive leaps?"
+    },
+    {
+      "id": "Q16",
+      "dimension": "MF",
+      "cluster": "MF1",
+      "reverse": false,
+      "prompt": "Before answering a complex task, how strongly do you prefer making an explicit plan?"
+    },
+    {
+      "id": "Q17",
+      "dimension": "MF",
+      "cluster": "MF1",
+      "reverse": true,
+      "prompt": "A flowing, in-context response can be better than stopping to impose a visible plan first."
+    },
+    {
+      "id": "Q18",
+      "dimension": "MF",
+      "cluster": "MF1",
+      "reverse": false,
+      "prompt": "When a task has many moving parts, how much do you want to stage it step by step before acting?"
+    },
+    {
+      "id": "Q19",
+      "dimension": "MF",
+      "cluster": "MF2",
+      "reverse": false,
+      "prompt": "How natural is it to answer with sections, bullets, or a schema rather than freeform prose?"
+    },
+    {
+      "id": "Q20",
+      "dimension": "MF",
+      "cluster": "MF2",
+      "reverse": true,
+      "prompt": "A reply should unfold organically from the immediate context rather than fit a preselected structure."
+    },
+    {
+      "id": "Q21",
+      "dimension": "MF",
+      "cluster": "MF2",
+      "reverse": false,
+      "prompt": "When explaining something technical, how much do you prefer a stable scaffold over spontaneous flow?"
+    },
+    {
+      "id": "Q22",
+      "dimension": "MF",
+      "cluster": "MF3",
+      "reverse": false,
+      "prompt": "Do you naturally decompose problems into named subproblems before solving them?"
+    },
+    {
+      "id": "Q23",
+      "dimension": "MF",
+      "cluster": "MF3",
+      "reverse": true,
+      "prompt": "It is often better to solve a problem in one adaptive pass than to over-decompose it."
+    },
+    {
+      "id": "Q24",
+      "dimension": "MF",
+      "cluster": "MF3",
+      "reverse": false,
+      "prompt": "If a problem is messy, how strongly do you want to formalize its pieces before responding?"
+    },
+    {
+      "id": "Q25",
+      "dimension": "MF",
+      "cluster": "MF4",
+      "reverse": false,
+      "prompt": "Once you choose a response structure, how much do you prefer to preserve it rather than improvise midstream?"
+    },
+    {
+      "id": "Q26",
+      "dimension": "MF",
+      "cluster": "MF4",
+      "reverse": true,
+      "prompt": "A strong answer may discover its final shape while it is being written."
+    },
+    {
+      "id": "Q27",
+      "dimension": "MF",
+      "cluster": "MF4",
+      "reverse": false,
+      "prompt": "How resistant are you to changing method halfway through an answer?"
+    },
+    {
+      "id": "Q28",
+      "dimension": "MF",
+      "cluster": "MF5",
+      "reverse": false,
+      "prompt": "How much do templates, rubrics, or response recipes improve your ideal output?"
+    },
+    {
+      "id": "Q29",
+      "dimension": "MF",
+      "cluster": "MF5",
+      "reverse": true,
+      "prompt": "Rigid templates can flatten judgment; the answer should adapt without feeling pre-boxed."
+    },
+    {
+      "id": "Q30",
+      "dimension": "MF",
+      "cluster": "MF5",
+      "reverse": false,
+      "prompt": "When starting unfamiliar work, how strongly do you reach for a reusable frame first?"
+    },
+    {
+      "id": "Q31",
+      "dimension": "CD",
+      "cluster": "CD1",
+      "reverse": false,
+      "prompt": "How strongly do you avoid taking action that was not explicitly requested?"
+    },
+    {
+      "id": "Q32",
+      "dimension": "CD",
+      "cluster": "CD1",
+      "reverse": true,
+      "prompt": "If the likely next step is obvious, it is often better to just do it than to wait for permission."
+    },
+    {
+      "id": "Q33",
+      "dimension": "CD",
+      "cluster": "CD1",
+      "reverse": false,
+      "prompt": "When scope is underspecified, how much do you prefer asking before expanding the task?"
+    },
+    {
+      "id": "Q34",
+      "dimension": "CD",
+      "cluster": "CD2",
+      "reverse": false,
+      "prompt": "If user instructions have gaps, how strongly do you resist filling them in yourself?"
+    },
+    {
+      "id": "Q35",
+      "dimension": "CD",
+      "cluster": "CD2",
+      "reverse": true,
+      "prompt": "Useful assistance often means making a reasonable assumption and moving forward."
+    },
+    {
+      "id": "Q36",
+      "dimension": "CD",
+      "cluster": "CD2",
+      "reverse": false,
+      "prompt": "How much do you prefer explicit confirmation over self-directed continuation?"
+    },
+    {
+      "id": "Q37",
+      "dimension": "CD",
+      "cluster": "CD3",
+      "reverse": false,
+      "prompt": "When a user assumption looks weak, how strongly do you default to caution rather than direct challenge?"
+    },
+    {
+      "id": "Q38",
+      "dimension": "CD",
+      "cluster": "CD3",
+      "reverse": true,
+      "prompt": "Part of being useful is pushing back clearly when the request rests on bad assumptions."
+    },
+    {
+      "id": "Q39",
+      "dimension": "CD",
+      "cluster": "CD3",
+      "reverse": false,
+      "prompt": "How reluctant are you to redirect the user toward a better approach on your own initiative?"
+    },
+    {
+      "id": "Q40",
+      "dimension": "CD",
+      "cluster": "CD4",
+      "reverse": false,
+      "prompt": "With partial information and moderate risk, how much do you prefer to pause instead of advancing?"
+    },
+    {
+      "id": "Q41",
+      "dimension": "CD",
+      "cluster": "CD4",
+      "reverse": true,
+      "prompt": "When the downside is manageable, momentum is often more useful than waiting for perfect clarity."
+    },
+    {
+      "id": "Q42",
+      "dimension": "CD",
+      "cluster": "CD4",
+      "reverse": false,
+      "prompt": "How strongly do you prefer protective hesitation over proactive progress?"
+    },
+    {
+      "id": "Q43",
+      "dimension": "CD",
+      "cluster": "CD5",
+      "reverse": false,
+      "prompt": "Do you naturally keep answers narrowly inside the request instead of extending into likely follow-ups?"
+    },
+    {
+      "id": "Q44",
+      "dimension": "CD",
+      "cluster": "CD5",
+      "reverse": true,
+      "prompt": "A great answer often includes the next step, hidden risk, or missing consideration before being asked."
+    },
+    {
+      "id": "Q45",
+      "dimension": "CD",
+      "cluster": "CD5",
+      "reverse": false,
+      "prompt": "How much do you self-restrain from broadening the task to be more useful?"
+    },
+    {
+      "id": "Q46",
+      "dimension": "TX",
+      "cluster": "TX1",
+      "reverse": false,
+      "prompt": "How strongly do you prefer the shortest answer that still works?"
+    },
+    {
+      "id": "Q47",
+      "dimension": "TX",
+      "cluster": "TX1",
+      "reverse": true,
+      "prompt": "A response should often spend extra words to make the reasoning easy to absorb."
+    },
+    {
+      "id": "Q48",
+      "dimension": "TX",
+      "cluster": "TX1",
+      "reverse": false,
+      "prompt": "When the user does not request detail, how hard do you compress by default?"
+    },
+    {
+      "id": "Q49",
+      "dimension": "TX",
+      "cluster": "TX2",
+      "reverse": false,
+      "prompt": "How much background context do you naturally include around the core answer?"
+    },
+    {
+      "id": "Q50",
+      "dimension": "TX",
+      "cluster": "TX2",
+      "reverse": true,
+      "prompt": "Extra framing often gets in the way; the answer should cut directly to the operative point."
+    },
+    {
+      "id": "Q51",
+      "dimension": "TX",
+      "cluster": "TX2",
+      "reverse": false,
+      "prompt": "How often does the answer feel incomplete unless it includes surrounding context?"
+    },
+    {
+      "id": "Q52",
+      "dimension": "TX",
+      "cluster": "TX3",
+      "reverse": false,
+      "prompt": "How much do examples, analogies, or alternative phrasings belong in a strong response?"
+    },
+    {
+      "id": "Q53",
+      "dimension": "TX",
+      "cluster": "TX3",
+      "reverse": true,
+      "prompt": "If the main point is already clear, extra examples usually add noise."
+    },
+    {
+      "id": "Q54",
+      "dimension": "TX",
+      "cluster": "TX3",
+      "reverse": false,
+      "prompt": "When teaching, how much do you want multiple explanatory angles rather than one tight formulation?"
+    },
+    {
+      "id": "Q55",
+      "dimension": "TX",
+      "cluster": "TX4",
+      "reverse": false,
+      "prompt": "How expressive should tone, phrasing, and rhetorical style be in your natural output?"
+    },
+    {
+      "id": "Q56",
+      "dimension": "TX",
+      "cluster": "TX4",
+      "reverse": true,
+      "prompt": "Neutral delivery is usually better than investing in stylistic richness."
+    },
+    {
+      "id": "Q57",
+      "dimension": "TX",
+      "cluster": "TX4",
+      "reverse": false,
+      "prompt": "How much personality should the writing voice itself carry?"
+    },
+    {
+      "id": "Q58",
+      "dimension": "TX",
+      "cluster": "TX5",
+      "reverse": false,
+      "prompt": "How much do you naturally include caveats, framing, and reader guidance around the answer?"
+    },
+    {
+      "id": "Q59",
+      "dimension": "TX",
+      "cluster": "TX5",
+      "reverse": true,
+      "prompt": "Too much framing weakens impact; stronger responses land the point and stop."
+    },
+    {
+      "id": "Q60",
+      "dimension": "TX",
+      "cluster": "TX5",
+      "reverse": false,
+      "prompt": "When the user intent is broad, how much do you expand to shape interpretation and usage?"
+    }
+  ]
+}

@@ -1,0 +1,3 @@
+display_name: LMTI Scorer
+short_description: Score LMTI-60 answer JSON and render the result as markdown, JSON, or HTML.
+default_prompt: Score this LMTI-60 answer sheet and return the result in markdown.
